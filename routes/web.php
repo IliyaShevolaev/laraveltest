@@ -21,3 +21,20 @@ Route::get('/{year}/{month}/{day}', function ($year, $month, $day) {
     'month' => '[0-9]+',
     'day' => '[0-9]+',
 ]);
+
+//3.8
+Route::get('{userName}/city', function($userName) {
+    $users = [ 
+        'user1' => 'city1', 
+        'user2' => 'city2', 
+        'user3' => 'city3', 
+        'user4' => 'city4', 
+        'user5' => 'city5'
+    ];
+
+    if (array_key_exists($userName, $users)) {
+        return $userName . '-' . $users[$userName];
+    } else {
+        return $userName . ' не найден';
+    }
+});
