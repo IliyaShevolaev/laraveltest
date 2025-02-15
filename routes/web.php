@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Middleware\PageVisitorsCount;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,4 +39,9 @@ Route::get('{userName}/city', function($userName) {
     } else {
         return $userName . ' не найден';
     }
+});
+
+//3.9
+Route::get('/visitors', function() {
+    return Session::get('visitorsCount', 0);
 });
