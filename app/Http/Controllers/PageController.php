@@ -30,12 +30,12 @@ class PageController extends Controller
 
     public function showView()
     {
-        return view('viewFromController');
+        return view('page.show.viewFromController');
     }
 
     public function showViewParams($name, $surname)
     {
-        return view('viewWithParams', [
+        return view('page.show.viewWithParams', [
             'name' => $name,
             'surname' => $surname,
         ]);
