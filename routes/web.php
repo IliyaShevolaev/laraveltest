@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Middleware\PageVisitorsCount;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -44,4 +45,10 @@ Route::get('{userName}/city', function($userName) {
 //3.9
 Route::get('/visitors', function() {
     return Session::get('visitorsCount', 0);
+});
+
+//3.10
+Route::group(['prefix' => '/pages'], function() {
+    Route::get('/show/{id}', [PageController::class, 'showOne']);
+    Route::get('/all', [PageController::class, 'showAll']);
 });
