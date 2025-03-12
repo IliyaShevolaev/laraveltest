@@ -32,4 +32,12 @@ class PageController extends Controller
     {
         return view('viewFromController');
     }
+
+    public function showViewParams($name, $surname)
+    {
+        return view('viewWithParams', [
+            'name' => $name,
+            'surname' => $surname,
+        ]);
+    }
 }

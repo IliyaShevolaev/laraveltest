@@ -51,5 +51,10 @@ Route::get('/visitors', function() {
 Route::group(['prefix' => '/pages'], function() {
     Route::get('/show/{id}', [PageController::class, 'showOne']);
     Route::get('/all', [PageController::class, 'showAll']);
+
+    //3.11
     Route::get('/showView', [PageController::class, 'showView']);
+
+    //3.12
+    Route::get('/showViewParams/{name}/{surname}', [PageController::class, 'showViewParams']);
 });
