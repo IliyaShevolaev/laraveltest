@@ -27,4 +27,9 @@ class PageController extends Controller
     {
         dd('Строка из showAll');
     }
+
+    public function showView()
+    {
+        return view('viewFromController');
+    }
 }
