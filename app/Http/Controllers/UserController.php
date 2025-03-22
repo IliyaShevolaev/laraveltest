@@ -21,4 +21,13 @@ class UserController extends Controller
             'message' => "Привет, $name! Тебе $age лет."
         ], 200);
     }
+
+    public function getTheme(Request $request)
+    {
+        $theme = $request->json('settings.theme');
+
+        return response()->json([
+            'selected_theme' => $theme
+        ], 200);
+    }
 }
