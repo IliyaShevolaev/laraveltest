@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\PageController;
-use App\Http\Middleware\PageVisitorsCount;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\PageController;
+use App\Http\Middleware\PageVisitorsCount;
 
 Route::get('/', function () {
     return view('welcome');
@@ -58,3 +58,4 @@ Route::group(['prefix' => '/pages'], function() {
     //3.12
     Route::get('/showViewParams/{name}/{surname}', [PageController::class, 'showViewParams']);
 });
+
