@@ -8,6 +8,7 @@ use App\Http\Middleware\PageVisitorsCount;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserTableController;
+use App\Http\Controllers\UserManagementController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -78,3 +79,11 @@ Route::get('/userstable', [UserTableController::class, 'index']);
 
 //3.22
 Route::get('/employees', [EmployeeController::class, 'index']);
+
+//3.23
+Route::prefix('users-management')->group(function () {
+    Route::get('/add', [UserManagementController::class, 'addUser']);
+    Route::get('/add-three', [UserManagementController::class, 'addThreeUsers']);
+    Route::get('/update', [UserManagementController::class, 'updateUser']);
+    Route::get('/delete', [UserManagementController::class, 'deleteUser']);
+});
