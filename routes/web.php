@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\LinksController;
 use App\Http\Middleware\PageVisitorsCount;
 use App\Http\Controllers\ContentController;
 
@@ -66,3 +67,6 @@ Route::group(['prefix' => '/content'], function () {
     Route::get('/second', [ContentController::class, 'secondPage'])->name('content.second');
     Route::get('/third', [ContentController::class, 'thirdPage'])->name('content.third');
 });
+
+//3.15
+Route::get('/links', [LinksController::class, 'index']);
