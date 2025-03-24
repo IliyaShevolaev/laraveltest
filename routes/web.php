@@ -9,6 +9,7 @@ use App\Http\Controllers\ContentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserTableController;
 use App\Http\Controllers\UserManagementController;
+use App\Http\Controllers\CountryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -87,3 +88,6 @@ Route::prefix('users-management')->group(function () {
     Route::get('/update', [UserManagementController::class, 'updateUser']);
     Route::get('/delete', [UserManagementController::class, 'deleteUser']);
 });
+
+//3.25
+Route::get('/countries', [CountryController::class, 'index'])->name('countries.index');

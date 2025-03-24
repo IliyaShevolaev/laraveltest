@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             // UsersTableSeeder::class,
             // PostsTableSeeder::class,
-            EmployeeSeeder::class,
+            // EmployeeSeeder::class,
+            CountriesAndCitiesSeeder::class,
         ]);
     }
 }
