@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\PageController;
 use App\Http\Middleware\PageVisitorsCount;
+use App\Http\Controllers\ContentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,12 +27,12 @@ Route::get('/{year}/{month}/{day}', function ($year, $month, $day) {
 ]);
 
 //3.8
-Route::get('{userName}/city', function($userName) {
-    $users = [ 
-        'user1' => 'city1', 
-        'user2' => 'city2', 
-        'user3' => 'city3', 
-        'user4' => 'city4', 
+Route::get('{userName}/city', function ($userName) {
+    $users = [
+        'user1' => 'city1',
+        'user2' => 'city2',
+        'user3' => 'city3',
+        'user4' => 'city4',
         'user5' => 'city5'
     ];
 
@@ -43,12 +44,12 @@ Route::get('{userName}/city', function($userName) {
 });
 
 //3.9
-Route::get('/visitors', function() {
+Route::get('/visitors', function () {
     return Session::get('visitorsCount', 0);
 });
 
 //3.10
-Route::group(['prefix' => '/pages'], function() {
+Route::group(['prefix' => '/pages'], function () {
     Route::get('/show/{id}', [PageController::class, 'showOne']);
     Route::get('/all', [PageController::class, 'showAll']);
 
@@ -59,3 +60,9 @@ Route::group(['prefix' => '/pages'], function() {
     Route::get('/showViewParams/{name}/{surname}', [PageController::class, 'showViewParams']);
 });
 
+//3.14 
+Route::group(['prefix' => '/content'], function () {
+    Route::get('/first', [ContentController::class, 'firstPage'])->name('content.first');
+    Route::get('/second', [ContentController::class, 'secondPage'])->name('content.second');
+    Route::get('/third', [ContentController::class, 'thirdPage'])->name('content.third');
+});
