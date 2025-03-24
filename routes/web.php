@@ -6,7 +6,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\LinksController;
 use App\Http\Middleware\PageVisitorsCount;
 use App\Http\Controllers\ContentController;
-
+use App\Http\Controllers\UserTableController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -70,3 +70,6 @@ Route::group(['prefix' => '/content'], function () {
 
 //3.15
 Route::get('/links', [LinksController::class, 'index']);
+
+//3.16
+Route::get('/userstable', [UserTableController::class, 'index']);
